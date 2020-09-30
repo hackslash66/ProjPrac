@@ -22,15 +22,18 @@ public class Product {
 	
 	@Id
 	private int pID;
-	@Column(length = 30)
+	
+	@Column(name="pname",length = 30)
 	private String pName;
-	@Column(length = 200)
+	
+	@Column(name="pdetails",length = 200)
 	private String pDetails;
+	
 	@Column
 	private double pRate;
-	
-	@OneToOne(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
-	private List<Order> ord=new ArrayList<Order>();
+//	
+//	@OneToMany(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
+//	private List<Order> ord=new ArrayList<Order>();
 	
 	public int getPid() {
 		return pID;

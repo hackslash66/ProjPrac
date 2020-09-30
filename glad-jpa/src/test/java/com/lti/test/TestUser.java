@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.lti.entity.Order;
 import com.lti.entity.Product;
 import com.lti.entity.User;
 import com.lti.repo.UserRepo;
@@ -32,7 +33,7 @@ private EntityManagerFactory factory;
 	public void testAddProduct() {
 		
 		Product p1 =new Product();
-		p1.setPid(120);
+		p1.setPid(121);
 		p1.setPname("vivo");
 		p1.setPdetails("good");
 		p1.setPrate(5512);
@@ -44,14 +45,14 @@ private EntityManagerFactory factory;
 	public void testAddUser() {
 		
 		User u1 =new User();
-		u1.setName("Ron");
+		u1.setName("Ronl");
 		u1.setUaddress("jdjd");
 		u1.setApprovalstatus("no");
 		u1.setUbankacct("45123");
 		u1.setUcardtype("gold");
 		u1.setUcontact("97845623");
 		u1.setUifsc("45552");
-		u1.setUname("CHJ");
+		u1.setUname("fp");
 		u1.setUpwd("mejdj");
 		u1.setUemail("yash@gmail.com");
 		u1.setBank("HDFC");
@@ -74,19 +75,24 @@ private EntityManagerFactory factory;
 		u1.setUcardtype("gold");
 		u1.setUcontact("97845623");
 		u1.setUifsc("45552");
-		u1.setUname("rams");
+		u1.setUname("bss");
 		u1.setUpwd("mejdj");
 		u1.setUemail("yash@gmail.com");
 		u1.setBank("HDFC");
+		
 		
 		Product p1 =new Product();
 		p1.setPid(25);
 		p1.setPname("mi");
 		p1.setPdetails("good");
 		p1.setPrate(512);
-		//p1.setUser(u1);
 		
-		//u1.getProducts().add(p1);
+		Order o1=new Order();
+		o1.setUser(u1);
+		o1.setProd(p1);
+		
+		
+	
 		
 		repo.save(u1);
 		
@@ -140,7 +146,7 @@ private EntityManagerFactory factory;
 	@Test
 	public void testAdminApprove() {
 		User user=repo.fetch("rams");
-        user.setApprovalstatus("yes");
+        user.setApprovalstatus("no");
 		repo.update(user);
 		
 	}

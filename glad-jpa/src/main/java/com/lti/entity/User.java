@@ -14,41 +14,41 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-@NamedQuery(name = "fetchifyes", query = "select u from User u where u.approvalstatus=:approvalstatus")
+@NamedQuery(name = "fetchifyes", query = "select u from User u where u.approvalStatus=:approvalStatus")
 public class User {
 	
 	@Id
-	@Column(name = "uname")
+	@Column(name = "uname",length=15)
 	private String uName;
 	
-	@Column(name = "uemail")
+	@Column(name = "uemail",length=25)
 	private String uEmail;
 	
-	@Column(name = "upwd")
+	@Column(name = "upwd",length=15)
 	private String uPwd;
 	
-	@Column(name = "ucontact")
+	@Column(name = "ucontact",length=15)
 	private String uContact;
 	
-	@Column(name = "name")
+	@Column(name = "name",length=15)
 	private String Name;
 	
-	@Column(name = "ubankacct")
+	@Column(name = "ubankacct",length=16)
 	private String uBankAcct;
 	
-	@Column(name = "uifsc")
+	@Column(name = "uifsc",length=15)
 	private String uIfsc;
 	
-	@Column(name = "uaddress")
+	@Column(name = "uaddress",length=30)
 	private String uAddress;
 	
-	@Column(name = "ubank")
+	@Column(name = "ubank",length=15)
 	private String uBank;
 	
-	@Column(name = "ucardtype")
+	@Column(name = "ucardtype",length=15)
 	private String uCardType;
 	
-	@Column(name = "status")
+	@Column(name = "status",length=15)
 	private String approvalStatus;
 
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)

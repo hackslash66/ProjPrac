@@ -51,7 +51,7 @@ public class UserRepoImpl implements UserRepo{
 
 	public List<User> fetchIfYes(){
 		Query query = em.createNamedQuery("fetchifyes");
-		query.setParameter("approvalstatus","yes");
+		query.setParameter("approvalStatus","yes");
 		return query.getResultList();
 	}
 }
